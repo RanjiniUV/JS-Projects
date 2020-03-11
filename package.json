@@ -1,0 +1,38 @@
+{
+  "name": "renderingcards",
+  "version": "1.0.0",
+  "description": "Progressively rendering cards",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build",
+    "start": "webpack-dev-server --hot"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RanjiniUV/JS-Projects.git"
+  },
+  "keywords": [
+    "Js"
+  ],
+  "author": "RanjiniUV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RanjiniUV/JS-Projects/issues"
+  },
+  "homepage": "https://github.com/RanjiniUV/JS-Projects#readme",
+  "dependencies": {
+    "@babel/core": "^7.0.0-beta.40",
+    "@babel/cli": "^7.0.0-beta.40",
+    "babel-loader": "^8.0.0-beta.0",
+    "babel-plugin-lodash": "^3.3.2",
+    "babel-plugin-react-transform": "^3.0.0",
+    "@babel/preset-react": "^7.0.0-beta.40",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "webpack": "^4.42.0",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "devDependencies": {
+    "webpack-cli": "^3.3.11"
+  }
+}
