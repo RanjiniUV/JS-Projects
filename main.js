@@ -1,17 +1,18 @@
 import React,{Component} from 'react';
 import ReactDOM,{ render } from 'react-dom';
-
-class Hello extends React.Component {
+import Card from './src/Cards/Card';
+import Stylesheet from './src/Styles/Stylesheet';
+class App extends React.Component {
  render() {
   return (
-       <div>
-          <h1>Hello Momo!</h1>
+       <div className="container">
+          <Card />
        </div>
     );
  }
 }
 
 ReactDOM.render(
-   <Hello/>,
+   <App/>,
    document.getElementById('root')
  );

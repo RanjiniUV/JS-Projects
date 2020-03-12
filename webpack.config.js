@@ -9,11 +9,17 @@ output: {
   filename: "index.js"
 
 },
+devServer: {
+  open: true
+},
 
 module: {
-
+  
   rules: [
-
+    {
+      test: /\.css$/i,
+      use: ['style-loader', 'css-loader'],
+    },
     {
       test: /\.jsx?$/,
       exclude: /node_modules/,
