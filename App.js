@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
 import ReactDOM,{ render } from 'react-dom';
-import Card from './src/Cards/Card';
+import Grid from './src/Containers/Grid';
 import Stylesheet from './src/Styles/Stylesheet';
 class App extends React.Component {
  render() {
   return (
        <div className="container">
-          <Card />
+          <Grid />
        </div>
     );
  }
