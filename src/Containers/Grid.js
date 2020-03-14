@@ -1,12 +1,21 @@
 import React,{Component} from 'react';
 import {render} from 'react-dom';
-
+import {connect} from 'react-redux';
+import displayCards  from '../Actions/index';
 import Card from '../Components/Cards/Card';
+import { bindActionCreators } from 'redux';
 class Grid extends React.Component{
     constructor(props){
         super(props);
-        
+        this.state={
+            
+        };
     }
+
+    componentDidMount(){
+        displayCards();
+    }
+
     render(){
         return(
             <Card />
@@ -15,13 +24,12 @@ class Grid extends React.Component{
 }
 
 // const mapStateToProps = state => ({
-//     todos: getVisibleTodos(state.todos, state.visibilityFilter)
-//   })
+    
+//   });
   
-//   const mapDispatchToProps = dispatch => ({
-//     toggleTodo: id => dispatch(toggleTodo(id))
-//   })
-  
-//   export default connect(mapStateToProps, mapDispatchToProps)(Grid);
+  const mapDispatchToProps = dispatch => ({
+    displayCards:  displayCards()
+  })
 
-export default Grid;
+  
+  export default connect(null,mapDispatchToProps)(Grid); 
