@@ -1,7 +1,11 @@
-import { DISPLAY_CARD } from "../constants/action-types";
-  import initialState from '../Store/index';
-  function rootReducer(state = initialState, action) {
-    return state;
-  };
-  
+import { combineReducers } from 'redux';
+import displayCardReducer from './Reducer';
+const initialState={
+  cards:[],
+  isFetching: false
+};
+
+const rootReducer = combineReducers({
+  displayCardReducer
+})
   export default rootReducer;

@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Grid from './src/Containers/Grid';
 import Stylesheet from './src/Styles/Stylesheet';
-import displayCard from './src/Reducers/Reducer';
-const store = createStore(displayCard);
+import rootReducer from './src/Reducers/index';
+const store = createStore(rootReducer);
 class App extends React.Component {
  render() {
   return (

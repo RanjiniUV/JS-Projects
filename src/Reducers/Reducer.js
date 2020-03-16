@@ -3,7 +3,7 @@ const initialState={
     isFetching: false
 };
 
-  function displayCard(state = initialState, action) {
+ export default function displayCardReducer(state = initialState, action) {
     switch (action.type) {
       case 'CARDS_ARE_FETCHING':
         return Object.assign({}, state, {
@@ -17,5 +17,3 @@ const initialState={
         return state
     }
   }
-
-  export default displayCard;
