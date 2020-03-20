@@ -1,21 +1,32 @@
 import React,{Component} from 'react';
 import {render} from 'react-dom';
 import {connect} from 'react-redux';
-import displayCards  from '../Actions/index';
+import {displayCards,displayCardsSuccess,fetchCardsForDisplay}  from '../Actions/index';
 import Card from '../Components/Cards/Card';
-import { bindActionCreators } from 'redux';
+
 class Grid extends React.Component{
     constructor(props){
         super(props);
+    
         this.state={
             
         };
+
     }
 
     componentDidMount(){
-        displayCards();
-    }
+         if(!this.props.cardsObject.isFetching && !this.props.cardsObject.error){
+             this.props.onPageLoad();
+         }
 
+        
+
+    }
+    componentDidUpdate(dispatch){
+        if(this.props.cardsObject.isFetching && !this.props.cardsObject.error){
+          fetchCardsForDisplay(this.props.cardsObject.isFetching);
+        }
+    }
     render(){
         return(
             <Card />
@@ -23,13 +34,12 @@ class Grid extends React.Component{
     }
 }
 
-// const mapStateToProps = state => ({
-    
-//   });
+const mapStateToProps = state => ({
+    cardsObject : state
+  });
   
-  const mapDispatchToProps = dispatch => ({
-    displayCards:  displayCards()
-  })
-
+const mapDispatchToProps = dispatch => ({
+    onPageLoad :() => dispatch (displayCards())
+  });
   
-  export default connect(null,mapDispatchToProps)(Grid); 
+  export default connect(mapStateToProps,mapDispatchToProps)(Grid); 

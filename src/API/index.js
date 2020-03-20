@@ -1,11 +1,20 @@
 import axios from "axios";
+import store from '../../App';
+import {displayCardsSuccess,displayCardsError} from '../Actions/index'
+export default function fetchCards() {
+    return axios.get("https://api.elderscrollslegends.io/v1/cards")
+  .then((response) => {onSuccessfulFetch(response)})
+                    .catch(err => {
+                      {onFailure(err)}
+                    });
+ 
+}
 
-export function fetchCards () {
-   
-      return axios.get("https://api.elderscrollslegends.io/v1/cards")
-        .then(({ data }) => {
-        //dispatch(setArticleDetails(data));
-        console.log("Show the data", data);
-      });
-    
-  }
+function onSuccessfulFetch(response){
+  return store.dispatch(displayCardsSuccess(response.data));
+}
+
+function onFailure(error){
+  return store.dispatch(displayCardsError(error));
+}
+

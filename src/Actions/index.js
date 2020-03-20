@@ -1,24 +1,33 @@
-import { CARDS_ARE_FETCHING } from "../Constants/action-types";
-import {fetchCards} from '../API/index';
+import { CARDS_ARE_FETCHING,CARDS_FETCH_DATA_SUCCESS,CARDS_FETCH_DATA_ERRORED } from "../Constants/action-types";
+import fetchCards from '../API/index';
 
- export default function displayCards() {
-    fetchCards();
+export function displayCards() {
+
+          return {
+            type: CARDS_ARE_FETCHING
+    
+        }
+}
+
+export function displayCardsSuccess(payload) {
+    debugger;
     return {
-        type: "CARDS_ARE_FETCHING"
+        type: CARDS_FETCH_DATA_SUCCESS,
+        payload: payload
     }
 }
 
-function displayCardsSuccess() {
-    
+export function displayCardsError(error) {
     return {
-        type: "CARDS_FETCH_DATA_SUCCESS",
-            data: response.data
-}
-}
-
-function displayCardsError() {
-    return {
-        type: "CARDS_FETCH_DATA_ERRORED",
+        type: CARDS_FETCH_DATA_ERRORED,
         error: response.error
     }
+}
+
+export function fetchCardsForDisplay(isFetching){
+    
+            if(isFetching){
+              fetchCards()
+            }
+    
 }
