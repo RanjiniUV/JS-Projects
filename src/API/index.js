@@ -2,7 +2,6 @@ import axios from "axios";
 import store from '../../App';
 import {displayCardsSuccess,displayCardsError} from '../Actions/index'
 export default async function fetchCards() {
-  debugger;
     return await axios.get("https://api.elderscrollslegends.io/v1/cards")
   .then((response) => {onSuccessfulFetch(response)})
                     .catch(err => {

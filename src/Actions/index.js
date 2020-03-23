@@ -10,7 +10,6 @@ export function displayCards() {
 }
 
 export function displayCardsSuccess(payload) {
-    debugger;
     return {
         type: CARDS_FETCH_DATA_SUCCESS,
         payload: payload
