@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {render} from 'react-dom';
 import {connect} from 'react-redux';
 import {displayCards,displayCardsSuccess,fetchCardsForDisplay}  from '../Actions/index';
-import Card from '../Components/Cards/Card';
+import Card from '../Components/Card';
 
 class Grid extends React.Component{
     constructor(props){
@@ -22,14 +22,16 @@ class Grid extends React.Component{
         
 
     }
-    componentDidUpdate(dispatch){
+    componentDidUpdate(){
         if(this.props.cardsObject.isFetching && !this.props.cardsObject.error){
           fetchCardsForDisplay(this.props.cardsObject.isFetching);
         }
     }
     render(){
+        const {cards} = this.props.cardsObject;
+
         return(
-            <Card />
+            <Card cards={cards}/>
         )
     }
 }
