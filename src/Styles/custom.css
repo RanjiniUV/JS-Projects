@@ -8,7 +8,7 @@
 
 body {
   font-family: "Montserrat";
-  background-color: #795c34 !important;
+  background-color: #f8f9fa !important;
 }
 
 h2 {
@@ -36,6 +36,16 @@ p {
 /***************************           Container           *******************************/
 .container{
     margin:50px;
+}
+
+/***************************           Search          *******************************/
+
+.searchBar{
+    display: grid;
+    border: 5px solid #D4AF37 !important;
+width:96%;
+margin:20px;
+padding:10px;
 }
 
 /***************************           Cards            *******************************/

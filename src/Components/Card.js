@@ -34,7 +34,7 @@ Card.propTypes = {
   cards: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     text: PropTypes.string,
-    rarity: PropTypes.string,
+    SetName: PropTypes.string,
     type: PropTypes.string
   })).isRequired
 }
