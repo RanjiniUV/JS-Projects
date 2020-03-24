@@ -5,6 +5,7 @@ import {displayCards,displayCardsSuccess,fetchCardsForDisplay}  from '../Actions
 import Card from '../Components/Card';
 import SearchBar from '../Components/SearchBar';
 import NotFound from '../Components/NotFound';
+import Spinner from '../Components/Spinner';
 
 class Grid extends React.Component{
     constructor(props){
@@ -59,14 +60,16 @@ class Grid extends React.Component{
 
     }
     render(){
-        const {cards} = this.props.cardsObject;
+        const {cards,isFetching} = this.props.cardsObject;
 
         return(
             <div>
+                
                 <SearchBar searchBy="Search By Name" searchFunc={this.onSearch}/>
-            {this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="No CARDS FOUND!"/>}
-            {this.state.isSearching && this.state.filtered.length  > 0 && <Card cards={this.state.filtered}/>}
-            {!this.state.isSearching && <Card cards={cards}/>}
+               {isFetching && <Spinner />}
+            {!isFetching && this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="No CARDS FOUND!"/>}
+            {!isFetching && this.state.isSearching && this.state.filtered.length  > 0 && <Card cards={this.state.filtered}/>}
+            {!isFetching && !this.state.isSearching && <Card cards={cards}/>}
             </div>
                 
         )
