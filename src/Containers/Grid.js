@@ -4,12 +4,14 @@ import {connect} from 'react-redux';
 import {displayCards,displayCardsSuccess,fetchCardsForDisplay}  from '../Actions/index';
 import Card from '../Components/Card';
 import SearchBar from '../Components/SearchBar';
+import NotFound from '../Components/NotFound';
 
 class Grid extends React.Component{
     constructor(props){
         super(props);
     
         this.state={
+            isSearching: false,
             filtered :[]
         };
         this.onSearch= this.onSearch.bind(this);
@@ -41,14 +43,19 @@ class Grid extends React.Component{
          const lc = item.name.toLowerCase();
          const filter = e.target.value.toLowerCase();
         return lc.includes(filter);
+        
       });
-    } else {
-        searchedList = <div>No Cards Found</div>;
-    }
-    console.log("the searched content is", searchedList);
-    this.setState({
+      this.setState({
+        isSearching: true,
       filtered: searchedList
     });
+    }
+    if(e.target.value == ""){
+        this.setState({
+            isSearching: false,
+          filtered: currentList
+        });
+    }
 
     }
     render(){
@@ -57,8 +64,9 @@ class Grid extends React.Component{
         return(
             <div>
                 <SearchBar searchBy="Search By Name" searchFunc={this.onSearch}/>
-            
-                <Card cards={this.state.filtered.length > 0 ? this.state.filtered : cards}/>
+            {this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="No CARDS FOUND!"/>}
+            {this.state.isSearching && this.state.filtered.length  > 0 && <Card cards={this.state.filtered}/>}
+            {!this.state.isSearching && <Card cards={cards}/>}
             </div>
                 
         )

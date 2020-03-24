@@ -11,12 +11,20 @@ body {
   background-color: #f8f9fa !important;
 }
 
+
 h2 {
   color:#D4AF37;
   margin: 2rem 0 .5rem;
   font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
+}
+
+h3 {
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 img {
@@ -41,11 +49,12 @@ p {
 /***************************           Search          *******************************/
 
 .searchBar{
-    display: grid;
+    
     border: 5px solid #D4AF37 !important;
 width:96%;
 margin:20px;
 padding:10px;
+border-radius: 4px;
 }
 
 /***************************           Cards            *******************************/
