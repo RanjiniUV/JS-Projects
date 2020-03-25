@@ -1,8 +1,15 @@
 import axios from "axios";
 import store from '../../App';
-import {displayCardsSuccess,displayCardsError} from '../Actions/index'
-export default async function fetchCards() {
-    return await axios.get("https://api.elderscrollslegends.io/v1/cards")
+import {displayCardsSuccess,displayCardsError} from '../Actions/index';
+import {PAGE_SIZE_COUNT} from '../Constants/api-params';
+export default function fetchCards(pageCounter) {
+  debugger;
+  const config = {
+    method: 'get',
+    url: `https://api.elderscrollslegends.io/v1/cards/?pageSize=${PAGE_SIZE_COUNT}&page=${pageCounter}`
+}
+
+    return  axios(config)
   .then((response) => {onSuccessfulFetch(response)})
                     .catch(err => {
                       {onFailure(err)}

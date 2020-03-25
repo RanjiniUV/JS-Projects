@@ -1,5 +1,6 @@
 import { CARDS_ARE_FETCHING,CARDS_FETCH_DATA_SUCCESS,CARDS_FETCH_DATA_ERRORED } from "../Constants/action-types";
   const initialState={
+    pageCounter : 1,
   cards:[],
   isFetching: false,
   error: false
@@ -11,7 +12,8 @@ import { CARDS_ARE_FETCHING,CARDS_FETCH_DATA_SUCCESS,CARDS_FETCH_DATA_ERRORED } 
         let newObj = Object.assign({}, state, {isFetching: true, error: false});
         return newObj;
         case CARDS_FETCH_DATA_SUCCESS:
-            return {...state, cards: action.payload.cards , isFetching: false,error: false};
+          let count = state.pageCounter;
+            return {...state, cards: action.payload.cards ,pageCounter:++count, isFetching: false,error: false};
         case CARDS_FETCH_DATA_ERRORED:
             return {...state, error: true, isFetching: false,error: true};
       default:

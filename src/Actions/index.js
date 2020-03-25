@@ -19,14 +19,14 @@ export function displayCardsSuccess(payload) {
 export function displayCardsError(error) {
     return {
         type: CARDS_FETCH_DATA_ERRORED,
-        error: response.error
+        error: error
     }
 }
 
-export function fetchCardsForDisplay(isFetching){
+export function fetchCardsForDisplay(pageCounter){
     
-            if(isFetching){
-              fetchCards()
-            }
+    
+              fetchCards(pageCounter);
+            
     
 }
