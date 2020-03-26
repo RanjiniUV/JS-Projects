@@ -4,6 +4,27 @@ import {render} from 'react-dom';
 import '../Styles/custom.css';
 
 class Card extends Component {
+  constructor(props){
+    super(props);
+    this.onScroll = this.onScroll.bind(this);
+  }
+
+  onScroll(){
+    this.props.onScroll();
+}
+
+  componentDidMount(){
+   console.log("mounted from card");
+    window.addEventListener("scroll", this.onScroll,false);
+
+}
+
+componentWillUnmount(){
+   debugger;
+   console.log("unmount from card");
+   window.removeEventListener("scroll", this.onScroll,false);
+}
+
     render() {
       const {cards}= this.props;
       const cardsForDisplay = cards.map((cards)=>
@@ -31,6 +52,7 @@ class Card extends Component {
 }
 
 Card.propTypes = {
+  onScroll : PropTypes.func,
   cards: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string,
     text: PropTypes.string,
