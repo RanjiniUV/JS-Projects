@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/RanjiniUV/JS-Projects/issues"
   },
-  "homepage": "https://github.com/RanjiniUV/JS-Projects#readme",
+  "homepage": ".",
   "proxy": "http://localhost:8080",
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.40",
