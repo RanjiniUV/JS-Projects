@@ -4,9 +4,7 @@
   "description": "Progressively rendering cards",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build",
-    "install": "npm i",
-    "node":"node server.js",
+    "build":"node server.js",
     "start": "webpack-dev-server --hot"
   },
   "repository": {

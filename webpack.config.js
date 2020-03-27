@@ -6,8 +6,9 @@ entry: {home :'./src/App.js'},
 
 output: {
 
-  filename: "index.js",
-  path: __dirname + '/dist'
+  filename: 'bundle.js',
+    path: path.resolve('dist'),
+    publicPath: '/'
 
 },
 devServer: {
