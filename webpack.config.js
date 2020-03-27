@@ -6,7 +6,8 @@ entry: {home :'./src/App.js'},
 
 output: {
 
-  filename: "index.js"
+  filename: "index.js",
+  path: __dirname + '/dist'
 
 },
 devServer: {
