@@ -6,6 +6,7 @@
   "scripts": {
     "build": "npm run build",
     "install": "npm i",
+    "node":"node server.js",
     "start": "webpack-dev-server --hot"
   },
   "repository": {
