@@ -2,7 +2,7 @@ const path = require("path");
 
 const config = {
 
-entry: {home :'./App.js'},
+entry: {home :'./src/App.js'},
 
 output: {
 

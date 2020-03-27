@@ -1,5 +1,5 @@
 import axios from "axios";
-import store from '../../App';
+import store from '../App';
 import {displayCardsSuccess,displayCardsError} from '../Actions/index';
 import {PAGE_SIZE_COUNT} from '../Constants/api-params';
 export default function fetchCards(pageCounter) {
