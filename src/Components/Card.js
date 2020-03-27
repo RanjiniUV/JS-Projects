@@ -14,14 +14,11 @@ class Card extends Component {
 }
 
   componentDidMount(){
-   console.log("mounted from card");
     window.addEventListener("scroll", this.onScroll,false);
 
 }
 
 componentWillUnmount(){
-   debugger;
-   console.log("unmount from card");
    window.removeEventListener("scroll", this.onScroll,false);
 }
 

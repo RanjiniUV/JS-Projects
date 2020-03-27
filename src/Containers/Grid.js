@@ -28,20 +28,16 @@ const WithCardDetails = WrappedComponent => {
              if(!this.props.cardsObject.isFetching && !this.props.cardsObject.error){
                  this.props.onPageLoad();
              }
-            console.log("mounted from gruid");
              window.addEventListener("scroll", this.onScroll,false);
     
         }
 
     
         componentWillUnmount(){
-            debugger;
-            console.log("unmount from gruid");
             window.removeEventListener("scroll", this.onScroll,false);
         }
     
         componentDidUpdate(){
-            console.log("updated");
             if((this.props.cardsObject.isFetching && !this.props.cardsObject.error) || this.props.cardsObject.isLoadingForInfiniteScrolling ){
               fetchCardsForDisplay(this.props.cardsObject.pageCounter);
             }
@@ -56,7 +52,6 @@ const WithCardDetails = WrappedComponent => {
                 this.props.cardsObject.cards.length && !this.props.cardsObject.isLoadingForInfiniteScrolling
               )
               {
-                  console.log("start scrolling");
                 this.props.fetchDataForInfiniteScrolling();
               }
                
@@ -89,9 +84,7 @@ const WithCardDetails = WrappedComponent => {
     
         }
         render(){
-            console.log("rendering");
             const {cards,isFetching} = this.props.cardsObject;
-            console.log("the cards", cards);
     
             return(
                 <div>
