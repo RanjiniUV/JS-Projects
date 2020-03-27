@@ -2,8 +2,10 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import rootReducer from './index';
 import thunk from 'redux-thunk';
 const initialState={
-    cards:[],
-    isFetching: false
+  pageCounter : 1,
+  cards:[],
+  isFetching: false,
+  error: false
 };
 
 export default function configureStore(initialState){

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import ReactDOM,{ render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
-import Grid from './src/Containers/Grid';
+import CardGridWithSearch from './src/Containers/Grid';
 import Stylesheet from './src/Styles/Stylesheet';
 import rootReducer from './src/Reducers/index';
 const store = createStore(rootReducer);
@@ -10,7 +10,7 @@ class App extends React.Component {
  render() {
   return (
        <div className="container">
-          <Grid />
+          <CardGridWithSearch />
        </div>
     );
  }
@@ -22,3 +22,5 @@ ReactDOM.render(
    </Provider>,
    document.getElementById('root')
  );
+
+ export default store;
