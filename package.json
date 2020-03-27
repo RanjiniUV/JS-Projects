@@ -21,6 +21,7 @@
     "url": "https://github.com/RanjiniUV/JS-Projects/issues"
   },
   "homepage": "https://github.com/RanjiniUV/JS-Projects#readme",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@babel/cli": "^7.0.0-beta.40",
     "@babel/core": "^7.0.0-beta.40",

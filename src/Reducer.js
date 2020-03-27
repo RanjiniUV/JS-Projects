@@ -1,5 +1,5 @@
 //import { combineReducers } from 'redux';
-import displayCardReducer from './src/Reducers';
+import displayCardReducer from './Reducers';
 const initialState={
   cards:[],
   isFetching: false
