@@ -59,8 +59,6 @@ const WithCardDetails = WrappedComponent => {
     
     
         onSearch(e){
-            // example for search API https://api.elderscrollslegends.io/v1/cards?name=courier
-            //use the current set and check if it already exists in the props if not then make the API call
             let searchedList = [];
             let currentList = this.props.cardsObject.cards;
             if (e.target.value !== "") {

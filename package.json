@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run build",
+    "install": "npm i",
     "start": "webpack-dev-server --hot"
   },
   "repository": {
