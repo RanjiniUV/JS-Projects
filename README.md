@@ -67,3 +67,8 @@ A common way to update is by doing
     $ git pull
     $ npm prune
     $ npm install
+
+
+## Run on local host
+
+The built package must run on the local host http://localhost/8080
