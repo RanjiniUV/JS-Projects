@@ -9,13 +9,7 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-//app.use("/src", express.static('./src/'));
-
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+app.use("/src", express.static('./src/'));
 
 const port = process.env.PORT || 5000;
 app.listen(port);
