@@ -2,17 +2,17 @@ const path = require("path");
 
 const config = {
 
-entry: {home :'./src/App.js'},
+entry :{app:'./src/App.js'},
 
 output: {
 
   filename: 'bundle.js',
-    path: path.resolve('dist'),
-    publicPath: '/'
+  path: path.resolve(__dirname, 'dist')
 
 },
 devServer: {
-  open: true
+  open: true,
+  compress :true
 },
 
 module: {
