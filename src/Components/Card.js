@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import PropTypes from 'prop-types';
 import {render} from 'react-dom';
-import '../Styles/custom.css';
+import '../Styles/card.scss';
 
 class Card extends Component {
   constructor(props){
@@ -29,7 +29,7 @@ componentWillUnmount(){
     
   <article className="card" key={cards.name}>
     <picture className="thumbnail">
-         <img className="category__01" src={cards.imageUrl} alt="" />
+         <img src={cards.imageUrl} alt="" />
     </picture>
     <div className="card-content">
       <h2>{cards.name}</h2>

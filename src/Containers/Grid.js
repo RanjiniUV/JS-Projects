@@ -6,7 +6,7 @@ import Card from '../Components/Card';
 import SearchBar from '../Components/SearchBar';
 import NotFound from '../Components/NotFound';
 import Spinner from '../Components/Spinner';
-
+import  '../Styles/grid.scss';
 
 const WithCardDetails = WrappedComponent => {
     return class Grid extends React.Component{

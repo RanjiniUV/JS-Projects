@@ -1,6 +1,7 @@
 const path = require("path");
 
 const config = {
+  mode :'none',
 
 entry :{app:'./src/App.js'},
 
@@ -11,18 +12,18 @@ output: {
 
 },
 devServer: {
-  open: true,
-  compress :true
+  open: true
 },
 
 module: {
   
   rules: [
     {
-      test: /\.css$/i,
+      test: /\.s[ac]ss$/i,
       use:[
         {loader : 'style-loader' },
-        {loader : 'css-loader'}
+        {loader : 'css-loader'},
+        {loader : 'sass-loader'}
       ]
     },
     {
