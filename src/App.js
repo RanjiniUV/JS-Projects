@@ -3,13 +3,13 @@ import ReactDOM,{ render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import CardGridWithSearch from './Containers/Grid';
-import Stylesheet from './Styles/Stylesheet';
 import rootReducer from './Reducers/index';
+
 const store = createStore(rootReducer);
 class App extends React.Component {
  render() {
   return (
-       <div className="container">
+       <div>
           <CardGridWithSearch />
        </div>
     );
