@@ -98,9 +98,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _Containers_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(47);
 /* harmony import */ var _Reducers_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(89);
-/* harmony import */ var _src_Styles_stylesheet_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(90);
-/* harmony import */ var _src_Styles_stylesheet_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_src_Styles_stylesheet_scss__WEBPACK_IMPORTED_MODULE_6__);
-
 
 
 
@@ -111,9 +108,7 @@ const store = Object(redux__WEBPACK_IMPORTED_MODULE_3__["createStore"])(_Reducer
 
 class App extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "container"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Containers_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Containers_Grid__WEBPACK_IMPORTED_MODULE_4__["default"], null));
   }
 
 }
@@ -31929,10 +31924,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Actions_index__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48);
 /* harmony import */ var _Components_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(79);
 /* harmony import */ var _Components_SearchBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(84);
-/* harmony import */ var _Components_NotFound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(85);
-/* harmony import */ var _Components_Spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(86);
-/* harmony import */ var _Styles_grid_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(87);
-/* harmony import */ var _Styles_grid_scss__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(_Styles_grid_scss__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _Components_NotFound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(87);
+/* harmony import */ var _Components_Spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(88);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
@@ -31944,9 +31938,42 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const WithCardDetails = WrappedComponent => {
-  return class Grid extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
+  var _temp;
+
+  return _temp = class Grid extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     constructor(props) {
       super(props);
+
+      _defineProperty(this, "onScroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && this.props.cardsObject.cards.length && !this.props.cardsObject.isLoadingForInfiniteScrolling) {
+          this.props.fetchDataForInfiniteScrolling();
+        }
+      });
+
+      _defineProperty(this, "onSearch", e => {
+        let searchedList = [];
+        let currentList = this.props.cardsObject.cards;
+
+        if (e.target.value !== "") {
+          searchedList = currentList.filter(item => {
+            const lc = item.name.toLowerCase();
+            const filter = e.target.value.toLowerCase();
+            return lc.includes(filter);
+          });
+          this.setState({
+            isSearching: true,
+            filtered: searchedList
+          });
+        }
+
+        if (e.target.value == "") {
+          this.setState({
+            isSearching: false,
+            filtered: currentList
+          });
+        }
+      });
+
       this.state = {
         loadSpinner: false,
         isSearching: false,
@@ -31974,36 +32001,6 @@ const WithCardDetails = WrappedComponent => {
       }
     }
 
-    onScroll() {
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 && this.props.cardsObject.cards.length && !this.props.cardsObject.isLoadingForInfiniteScrolling) {
-        this.props.fetchDataForInfiniteScrolling();
-      }
-    }
-
-    onSearch(e) {
-      let searchedList = [];
-      let currentList = this.props.cardsObject.cards;
-
-      if (e.target.value !== "") {
-        searchedList = currentList.filter(item => {
-          const lc = item.name.toLowerCase();
-          const filter = e.target.value.toLowerCase();
-          return lc.includes(filter);
-        });
-        this.setState({
-          isSearching: true,
-          filtered: searchedList
-        });
-      }
-
-      if (e.target.value == "") {
-        this.setState({
-          isSearching: false,
-          filtered: currentList
-        });
-      }
-    }
-
     render() {
       const {
         cards,
@@ -32023,7 +32020,7 @@ const WithCardDetails = WrappedComponent => {
       }));
     }
 
-  };
+  }, _temp;
 };
 
 const CardGridWithSearch = WithCardDetails(_Components_Card__WEBPACK_IMPORTED_MODULE_4__["default"]);
@@ -34029,6 +34026,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _Styles_card_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(80);
 /* harmony import */ var _Styles_card_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Styles_card_scss__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -34037,11 +34036,12 @@ __webpack_require__.r(__webpack_exports__);
 class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
   constructor(props) {
     super(props);
-    this.onScroll = this.onScroll.bind(this);
-  }
 
-  onScroll() {
-    this.props.onScroll();
+    _defineProperty(this, "onScroll", () => {
+      this.props.onScroll();
+    });
+
+    this.onScroll = this.onScroll.bind(this);
   }
 
   componentDidMount() {
@@ -34062,12 +34062,20 @@ class Card extends react__WEBPACK_IMPORTED_MODULE_0__["Component"] {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("picture", {
       className: "thumbnail"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-      className: "category__01",
+      className: "imgStyle",
       src: cards.imageUrl,
       alt: ""
     })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "card-content"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, cards.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Text : ", cards.text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Set Name : ", cards.set.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Type : ", cards.type))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "card-name"
+    }, cards.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "card-details"
+    }, "Text : ", cards.text), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "card-details"
+    }, "Set Name : ", cards.set.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "card-details"
+    }, "Type : ", cards.type))));
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
       className: "cards",
       key: cards.name
@@ -34395,8 +34403,9 @@ module.exports = function (list, options) {
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
 exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);"]);
 // Module
-exports.push([module.i, "/***************************           Cards            *******************************/\n.cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));\n  grid-auto-rows: minmax(200px, auto);\n  grid-gap: 1rem; }\n\n.card {\n  background-color: #000 !important;\n  border: 5px solid #D4AF37 !important;\n  border-radius: 4px;\n  padding: .25rem;\n  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  display: flex;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  position: relative;\n  color: #000; }\n\n.thumbnail img {\n  height: 350px; }\n\n.card-content {\n  padding: 0.5rem;\n  font-size: .75rem;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  -webkit-box-flex: 1;\n  -ms-flex: 1;\n  flex: 1; }\n", ""]);
+exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));\n  grid-auto-rows: minmax(200px, auto);\n  grid-gap: 1rem;\n  font-family: \"Montserrat\"; }\n\n.card {\n  background-color: #160a05;\n  border: 5px solid #D4AF37;\n  border-radius: 4px;\n  padding: .25rem;\n  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  display: flex;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  position: relative; }\n\n.thumbnail {\n  height: 420px; }\n\n.card-content {\n  padding: 0.5rem;\n  font-size: .75rem;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  -webkit-box-flex: 1;\n  -ms-flex: 1;\n  flex: 1; }\n\n.card-name {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1.5rem;\n  font-weight: 500;\n  text-transform: uppercase; }\n\n.card-details {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1rem;\n  font-weight: 500; }\n\n.imgStyle {\n  display: block;\n  border: 0;\n  width: 100%;\n  height: 100%; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -34513,6 +34522,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Styles_searchbar_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(85);
+/* harmony import */ var _Styles_searchbar_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Styles_searchbar_scss__WEBPACK_IMPORTED_MODULE_3__);
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
 
 
 
@@ -34520,16 +34534,17 @@ __webpack_require__.r(__webpack_exports__);
 class SearchBar extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-  }
 
-  handleChange(e) {
-    this.props.searchFunc(e);
+    _defineProperty(this, "handleChange", e => {
+      this.props.searchFunc(e);
+    });
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-      className: "navbar navbar-light bg-light"
+      className: "navbar"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
       type: "text",
       className: "input searchbar",
@@ -34548,6 +34563,46 @@ SearchBar.propTypes = {
 
 /***/ }),
 /* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(81);
+            var content = __webpack_require__(86);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);"]);
+// Module
+exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.searchBar {\n  border: 5px solid #D4AF37;\n  width: 100%;\n  margin: 20px;\n  padding: 10px;\n  border-radius: 4px; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 87 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34575,7 +34630,7 @@ NotFound.propTypes = {
 /* harmony default export */ __webpack_exports__["default"] = (NotFound);
 
 /***/ }),
-/* 86 */
+/* 88 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34602,45 +34657,6 @@ class Spinner extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (Spinner);
-
-/***/ }),
-/* 87 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(81);
-            var content = __webpack_require__(88);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
-
-/***/ }),
-/* 88 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, "/***************************           Container           *******************************/\n.container {\n  margin: 50px; }\n\n/***************************           Search          *******************************/\n.searchBar {\n  border: 5px solid #D4AF37 !important;\n  width: 96%;\n  margin: 20px;\n  padding: 10px;\n  border-radius: 4px; }\n", ""]);
-// Exports
-module.exports = exports;
-
 
 /***/ }),
 /* 89 */
@@ -34695,46 +34711,6 @@ function displayCardReducer(state = initialState, action) {
       return state;
   }
 }
-
-/***/ }),
-/* 90 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var api = __webpack_require__(81);
-            var content = __webpack_require__(91);
-
-            content = content.__esModule ? content.default : content;
-
-            if (typeof content === 'string') {
-              content = [[module.i, content, '']];
-            }
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = api(content, options);
-
-var exported = content.locals ? content.locals : {};
-
-
-
-module.exports = exported;
-
-/***/ }),
-/* 91 */
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
-exports = ___CSS_LOADER_API_IMPORT___(false);
-exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);"]);
-// Module
-exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.body {\n  font-family: \"Montserrat\";\n  background-color: #f8f9fa !important; }\n\n.h2 {\n  color: #D4AF37;\n  margin: 2rem 0 .5rem;\n  font-size: 1rem;\n  font-weight: 400;\n  text-transform: uppercase; }\n\n.h3 {\n  font-size: 1rem;\n  font-weight: 400;\n  text-transform: uppercase;\n  text-align: center; }\n\n.img {\n  display: block;\n  border: 0;\n  width: 100%;\n  height: auto; }\n\n.p {\n  color: #D4AF37;\n  margin: 2rem 0 .5rem;\n  font-size: 1rem;\n  font-weight: 500; }\n", ""]);
-// Exports
-module.exports = exports;
-
 
 /***/ })
 /******/ ]);

@@ -6,7 +6,6 @@ import Card from '../Components/Card';
 import SearchBar from '../Components/SearchBar';
 import NotFound from '../Components/NotFound';
 import Spinner from '../Components/Spinner';
-import  '../Styles/grid.scss';
 
 const WithCardDetails = WrappedComponent => {
     return class Grid extends React.Component{
@@ -38,13 +37,14 @@ const WithCardDetails = WrappedComponent => {
         }
     
         componentDidUpdate(){
+
             if((this.props.cardsObject.isFetching && !this.props.cardsObject.error) || this.props.cardsObject.isLoadingForInfiniteScrolling ){
               fetchCardsForDisplay(this.props.cardsObject.pageCounter);
             }
-          
+    
         }
     
-        onScroll(){
+        onScroll  = () =>{
            
 
             if (
@@ -58,7 +58,7 @@ const WithCardDetails = WrappedComponent => {
         }
     
     
-        onSearch(e){
+        onSearch =(e)=>{
             let searchedList = [];
             let currentList = this.props.cardsObject.cards;
             if (e.target.value !== "") {

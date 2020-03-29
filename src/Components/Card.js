@@ -9,17 +9,17 @@ class Card extends Component {
     this.onScroll = this.onScroll.bind(this);
   }
 
-  onScroll(){
-    this.props.onScroll();
-}
-
-  componentDidMount(){
+componentDidMount(){
     window.addEventListener("scroll", this.onScroll,false);
 
 }
 
 componentWillUnmount(){
    window.removeEventListener("scroll", this.onScroll,false);
+}
+
+onScroll = () =>{
+  this.props.onScroll();
 }
 
     render() {
@@ -29,13 +29,13 @@ componentWillUnmount(){
     
   <article className="card" key={cards.name}>
     <picture className="thumbnail">
-         <img src={cards.imageUrl} alt="" />
+         <img className="imgStyle" src={cards.imageUrl} alt="" />
     </picture>
     <div className="card-content">
-      <h2>{cards.name}</h2>
-    <p>Text : {cards.text}</p>
-    <p>Set Name : {cards.set.name}</p>
-    <p>Type : {cards.type}</p>
+      <div className="card-name">{cards.name}</div>
+    <div className="card-details">Text : {cards.text}</div>
+    <div className="card-details">Set Name : {cards.set.name}</div>
+    <div className="card-details">Type : {cards.type}</div>
    </div>
   </article>
               
