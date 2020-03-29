@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(12);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(29);
 /* harmony import */ var _Containers_Grid__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(47);
-/* harmony import */ var _Reducers_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(89);
+/* harmony import */ var _Reducers_index__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(91);
 
 
 
@@ -31925,7 +31925,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_Card__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(79);
 /* harmony import */ var _Components_SearchBar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(84);
 /* harmony import */ var _Components_NotFound__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(87);
-/* harmony import */ var _Components_Spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(88);
+/* harmony import */ var _Components_Spinner__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(90);
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -32010,7 +32010,7 @@ const WithCardDetails = WrappedComponent => {
         searchBy: "Search By Name",
         searchFunc: this.onSearch
       }), isFetching || this.state.loadSpinner && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Spinner__WEBPACK_IMPORTED_MODULE_7__["default"], null), !isFetching && this.state.isSearching && this.state.filtered.length == 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_NotFound__WEBPACK_IMPORTED_MODULE_6__["default"], {
-        message: "No CARDS FOUND!"
+        message: "NO CARDS FOUND!"
       }), !isFetching && this.state.isSearching && this.state.filtered.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedComponent, {
         cards: this.state.filtered,
         onScroll: this.scroll
@@ -34405,7 +34405,7 @@ var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
 exports = ___CSS_LOADER_API_IMPORT___(false);
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);"]);
 // Module
-exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));\n  grid-auto-rows: minmax(200px, auto);\n  grid-gap: 1rem;\n  font-family: \"Montserrat\"; }\n\n.card {\n  background-color: #160a05;\n  border: 5px solid #D4AF37;\n  border-radius: 4px;\n  padding: .25rem;\n  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  display: flex;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  position: relative; }\n\n.thumbnail {\n  height: 420px; }\n\n.card-content {\n  padding: 0.5rem;\n  font-size: .75rem;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  -webkit-box-flex: 1;\n  -ms-flex: 1;\n  flex: 1; }\n\n.card-name {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1.5rem;\n  font-weight: 500;\n  text-transform: uppercase; }\n\n.card-details {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1rem;\n  font-weight: 500; }\n\n.imgStyle {\n  display: block;\n  border: 0;\n  width: 100%;\n  height: 100%; }\n", ""]);
+exports.push([module.i, "* {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box; }\n\n.cards {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));\n  grid-auto-rows: minmax(200px, auto);\n  grid-gap: 1rem;\n  font-family: \"Montserrat\"; }\n\n.card {\n  background-color: #160a05;\n  border: 5px solid #D4AF37;\n  border-radius: 4px;\n  padding: .25rem;\n  -webkit-box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15);\n  display: flex;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  position: relative; }\n\n.thumbnail {\n  height: 420px;\n  margin: 10px;\n  text-align: -webkit-center; }\n\n.imgStyle {\n  display: block;\n  border: 0;\n  height: 100%; }\n\n.card-content {\n  padding: 0.5rem;\n  font-size: .75rem;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n  -ms-flex-direction: column;\n  flex-direction: column;\n  -webkit-box-flex: 1;\n  -ms-flex: 1;\n  flex: 1; }\n\n.card-name {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1.5rem;\n  font-weight: 500;\n  text-transform: uppercase; }\n\n.card-details {\n  color: #D4AF37;\n  margin: 0.5rem 0 .5rem;\n  font-size: 1rem;\n  font-weight: 500; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -34613,13 +34613,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(14);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Styles_notFound_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(88);
+/* harmony import */ var _Styles_notFound_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Styles_notFound_scss__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 
 class NotFound extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
   render() {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, this.props.message));
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "NotFound"
+    }, this.props.message));
   }
 
 }
@@ -34631,6 +34636,46 @@ NotFound.propTypes = {
 
 /***/ }),
 /* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(81);
+            var content = __webpack_require__(89);
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(83);
+exports = ___CSS_LOADER_API_IMPORT___(false);
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700);"]);
+// Module
+exports.push([module.i, ".notFound {\n  font-size: 1rem;\n  font-weight: 400;\n  text-transform: uppercase;\n  text-align: center; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+/* 90 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34659,7 +34704,7 @@ class Spinner extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 /* harmony default export */ __webpack_exports__["default"] = (Spinner);
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
