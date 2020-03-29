@@ -89,7 +89,7 @@ const WithCardDetails = WrappedComponent => {
                     
                     <SearchBar searchBy="Search By Name" searchFunc={this.onSearch}/>
                    {isFetching || this.state.loadSpinner && <Spinner />}
-                {!isFetching && this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="No CARDS FOUND!"/>}
+                {!isFetching && this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="NO CARDS FOUND!"/>}
                 {!isFetching && this.state.isSearching && this.state.filtered.length  > 0 && <WrappedComponent cards={this.state.filtered} onScroll={this.scroll}/>}
                 {!isFetching && !this.state.isSearching && <WrappedComponent cards={cards} onScroll={this.onScroll}/>}
                 </div>

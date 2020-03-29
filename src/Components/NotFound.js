@@ -1,12 +1,13 @@
 import React,{Component} from 'react';
 import {render} from 'react-dom';
 import PropTypes from 'prop-types';
+import  '../Styles/notFound.scss';
 
 class NotFound extends React.Component{
     render(){
 return(
     <div>
-        <h3>{this.props.message}</h3>
+        <p className="NotFound">{this.props.message}</p>
     </div>
     
 )
