@@ -50,14 +50,16 @@ Also, be sure to have `git` available in your PATH, `npm` might need it.
     $ cd PROJECT
     $ npm install
 
+## Simple build for production and development environment
+
+    $ npm run build
+
 
 ## Start & watch
 
     $ npm start
 
-## Simple build for production
 
-    $ npm run build
 
 ## Update sources
 
@@ -72,3 +74,8 @@ A common way to update is by doing
 ## Run on local host
 
 The built package must run on the local host http://localhost/8080
+
+
+## Few important things regarding the project are mentioned below.
+
+Regarding the search functionality, since there was no mention of the consumption of Elder Scrolls Legends search API, the search is currently localised.

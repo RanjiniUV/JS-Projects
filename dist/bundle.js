@@ -31975,7 +31975,6 @@ const WithCardDetails = WrappedComponent => {
       });
 
       this.state = {
-        loadSpinner: false,
         isSearching: false,
         filtered: []
       };
@@ -32004,12 +32003,13 @@ const WithCardDetails = WrappedComponent => {
     render() {
       const {
         cards,
-        isFetching
+        isFetching,
+        isLoadingForInfiniteScrolling
       } = this.props.cardsObject;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_SearchBar__WEBPACK_IMPORTED_MODULE_5__["default"], {
         searchBy: "Search By Name",
         searchFunc: this.onSearch
-      }), isFetching || this.state.loadSpinner && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Spinner__WEBPACK_IMPORTED_MODULE_7__["default"], null), !isFetching && this.state.isSearching && this.state.filtered.length == 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_NotFound__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), isFetching && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_Spinner__WEBPACK_IMPORTED_MODULE_7__["default"], null), !isFetching && this.state.isSearching && this.state.filtered.length == 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Components_NotFound__WEBPACK_IMPORTED_MODULE_6__["default"], {
         message: "NO CARDS FOUND!"
       }), !isFetching && this.state.isSearching && this.state.filtered.length > 0 && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(WrappedComponent, {
         cards: this.state.filtered,

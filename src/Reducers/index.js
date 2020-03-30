@@ -23,6 +23,7 @@ import { CARDS_ARE_FETCHING,CARDS_FETCH_DATA_SUCCESS,CARDS_FETCH_DATA_ERRORED,CA
           let count = state.pageCounter;
           let updatedCardObjArray = state.cards.concat(action.payload.cards);
           return {...state,cards :updatedCardObjArray, pageCounter:++count,isFetching: false,isLoadingForInfiniteScrolling : false, error: false};
+          
         case CARDS_FETCH_DATA_ERRORED:
             return {...state, error: true, isFetching: false,error: true};
       default:

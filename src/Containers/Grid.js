@@ -13,7 +13,6 @@ const WithCardDetails = WrappedComponent => {
             super(props);
         
             this.state={
-                loadSpinner : false,
                 isSearching: false,
                 filtered :[]
             };
@@ -40,8 +39,9 @@ const WithCardDetails = WrappedComponent => {
 
             if((this.props.cardsObject.isFetching && !this.props.cardsObject.error) || this.props.cardsObject.isLoadingForInfiniteScrolling ){
               fetchCardsForDisplay(this.props.cardsObject.pageCounter);
+      
             }
-    
+            
         }
     
         onScroll  = () =>{
@@ -54,11 +54,13 @@ const WithCardDetails = WrappedComponent => {
               {
                 this.props.fetchDataForInfiniteScrolling();
               }
+              
                
         }
     
     
         onSearch =(e)=>{
+
             let searchedList = [];
             let currentList = this.props.cardsObject.cards;
             if (e.target.value !== "") {
@@ -82,13 +84,13 @@ const WithCardDetails = WrappedComponent => {
     
         }
         render(){
-            const {cards,isFetching} = this.props.cardsObject;
+            const {cards,isFetching,isLoadingForInfiniteScrolling} = this.props.cardsObject;
     
             return(
                 <div>
                     
                     <SearchBar searchBy="Search By Name" searchFunc={this.onSearch}/>
-                   {isFetching || this.state.loadSpinner && <Spinner />}
+                   {isFetching && <Spinner />}
                 {!isFetching && this.state.isSearching && this.state.filtered.length == 0 && <NotFound message="NO CARDS FOUND!"/>}
                 {!isFetching && this.state.isSearching && this.state.filtered.length  > 0 && <WrappedComponent cards={this.state.filtered} onScroll={this.scroll}/>}
                 {!isFetching && !this.state.isSearching && <WrappedComponent cards={cards} onScroll={this.onScroll}/>}
