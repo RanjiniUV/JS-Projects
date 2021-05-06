@@ -1,5 +1,8 @@
 # JS-Projects
-# PROJECT : HIGHSPOT - DISPLAY PROGESSIVELY RENDERNG GRID OF VIRTUAL CARDS
+# PROJECT :  DISPLAY PROGESSIVELY RENDERNG GRID OF VIRTUAL CARDS
+# To open the deployed project click on the link below.
+
+https://ranjiniuv.github.io/JS-Projects/
 
 ## Requirements
 
