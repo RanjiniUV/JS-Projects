@@ -5,7 +5,8 @@ import {PAGE_SIZE_COUNT} from '../Constants/api-params';
 export default function fetchCards(pageCounter) {
   const config = {
     method: 'get',
-    url: `https://api.elderscrollslegends.io/v1/cards/?pageSize=${PAGE_SIZE_COUNT}&page=${pageCounter}`
+    //url: `https://api.elderscrollslegends.io/v1/cards/?pageSize=${PAGE_SIZE_COUNT}&page=${pageCounter}`
+    url : `https://api.magicthegathering.io/v1/cards?pageSize=${PAGE_SIZE_COUNT}&page=${pageCounter}`
 }
 
     return  axios(config)
