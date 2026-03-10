@@ -1,7 +1,8 @@
 import React,{Component} from 'react';
 import {render} from 'react-dom';
 import PropTypes from 'prop-types';
-import  '../Styles/searchBar.scss';
+//import  '../Styles/searchBar.scss';
+import 'src/Styles/searchBar.scss';
 
 class SearchBar extends React.Component {
     constructor(props){
