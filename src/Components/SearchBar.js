@@ -14,7 +14,7 @@ this.props.searchFunc(e);
     render(){
         return(
         <nav className="navbar">
-<input type="text" className="input searchbar" placeholder={this.props.searchBy} onChange={this.handleChange} />
+<input type="text" className="input searchBar" placeholder={this.props.searchBy} onChange={this.handleChange} />
 </nav>
         )
     }
