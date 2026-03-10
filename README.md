@@ -1,5 +1,5 @@
 # JS-Projects
-# PROJECT : HIGHSPOT - DISPLAY PROGESSIVELY RENDERNG GRID OF VIRTUAL CARDS
+# PROJECT : DISPLAY PROGESSIVELY RENDERNG GRID OF VIRTUAL CARDS
 
 ## Requirements
 
@@ -78,4 +78,8 @@ The built package must run on the local host http://localhost/8080
 
 ## Few important things regarding the project are mentioned below.
 
-Regarding the search functionality, since there was no mention of the consumption of Elder Scrolls Legends search API, the search is currently localised.
+Elder Scrolls Legends API is used for the data to be displayed.
+
+
+# THE LINK FOR THE PUBLISHED WEBSITE IS BELOW.
+https://ranjiniuv.github.io/JS-Projects/
